@@ -16,8 +16,12 @@ public class FizzBuzzSolution {
             return "fizz buzz deluxe";
         if(fizz && buzz)
             return "fizz buzz";
+        if(fizz && deluxe)
+            return "fizz deluxe";
         if(fizz)
             return "fizz";
+        if(buzz && deluxe)
+            return "buzz deluxe";
         if(buzz)
             return "buzz";
         if(deluxe)
