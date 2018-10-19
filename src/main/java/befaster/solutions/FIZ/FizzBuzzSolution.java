@@ -20,6 +20,8 @@ public class FizzBuzzSolution {
             return "fizz";
         if(buzz)
             return "buzz";
+        if(deluxe)
+            return "deluxe";
         return number.toString();     
     }
     public boolean hasAllDigitsIdentical(int number)
