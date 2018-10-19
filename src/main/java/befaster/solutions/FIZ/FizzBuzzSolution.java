@@ -3,16 +3,28 @@ package befaster.solutions.FIZ;
 import befaster.runner.SolutionNotImplementedException;
 
 public class FizzBuzzSolution {
+//    - The old rules for "deluxe" do not apply.
+//  - A number is "fizz deluxe" if it is divisible by 3 AND it has a 3 in it
+//  - A number is "buzz deluxe" if it is divisible by 5 AND it has a 5 in it
+//  - We should still say "fake deluxe" if the "deluxe" number is odd
+//  - A number can be "fizz", "buzz" and "deluxe" at the same time. If this happens then write "fizz buzz deluxe"
+//  - All the previous rules for "fizz" and "buzz" are still valid
     public String fizzBuzz(Integer number) {
         boolean fizz=false, buzz = false, deluxe=false, fakeDeluxe=false;
-        if(number>10 && hasAllDigitsIdentical(number) && number%2 == 0)
-            deluxe=true;
-        if(number>10 && hasAllDigitsIdentical(number) && number%2 != 0)
-            fakeDeluxe=true;
-        if(number%3 == 0 || has3(number))
+
+        if(number%3 == 0 && has3(number))
+        {
             fizz=true;
-        if(number%5 == 0 || has5(number))
+            deluxe=true;
+        }
+        if(number%5 == 0 && has5(number))
+        {
             buzz=true;
+            deluxe=true;
+        }
+        if(deluxe && number%2 != 0)
+            fakeDeluxe=true;
+            
         if(fizz && buzz && fakeDeluxe)
             return "fizz buzz fake deluxe";
         if(fizz && buzz && deluxe)
